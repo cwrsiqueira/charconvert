@@ -78,13 +78,17 @@
     margin-bottom: 50px;
     background-color: #fff;
   }
+
+  #convertedText.centralizar {
+    text-align: center;
+  }  
   
   .select {
     font-size: 14px;
     padding: 5px;
     font-weight: bold;
   }
-  
+
   @media only screen and (max-width: 1024px) {
     .body-up {
       display: flex;

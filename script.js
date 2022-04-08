@@ -17,6 +17,7 @@ function convertStringToSlug (string) {
 }
 
 function converter(selection) {
+    document.querySelector('#convertedText').classList.remove('centralizar')
     let text = document.querySelector('#text').value
 
     switch (selection) {
