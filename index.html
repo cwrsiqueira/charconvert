@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:url"                 content="https://charconverter.com/" />
+    <meta property="og:type"                content="website" />
+    <meta property="og:title"               content="char converter" />
+    <meta property="og:description"         content="Conversor de Caracteres" />
+    <meta property="og:tags"                content="character, char, converter, caracteres, conversor, uppercase, lowercase, maiusculas, minusculas, letras" />
+
+    <meta property="url"                 content="https://charconverter.com/" />
+    <meta property="type"                content="website" />
+    <meta property="title"               content="char converter" />
+    <meta property="description"         content="Conversor de Textos" />
+    <meta property="tags"                content="character, char, converter, caracteres, conversor, uppercase, lowercase, maiusculas, minusculas, letras, texto, conversor de texto" />
+    <meta property="keywords"                content="character, char, converter, caracteres, conversor, uppercase, lowercase, maiusculas, minusculas, letras, texto, conversor de texto" />
+    
+    <title>CharConvert</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class='menu'>
+        <h1>Char Converter</h1>
+        <h2><small>Conversor de Caracteres</small></h2>
+    </div>
+
+    <div class="container">
+
+        <div class='body-up'>
+
+            <div class='body-up-left'>
+                <h2>Digite ou cole o texto para converter</h2>
+                <input type="hidden" name="orig_text" id="orig_text">
+                <textarea id="text"></textarea>
+            </div>
+
+            <div class='body-up-right'>
+                <h3>Converter texto para:</h3>
+                <label for='toUpperCase'><input type='radio' name='select' onClick="converter(this.value)" id='toUpperCase' value='toUpperCase' />TUDO MAIÚSCULO</label>
+                <label for='toLowerCase'><input type='radio' name='select' onClick="converter(this.value)" id='toLowerCase' value='toLowerCase' />tudo minúsculo</label>
+                <label for='capitalize'><input type='radio' name='select' onClick="converter(this.value)" id='capitalize' value='capitalize' />Só a primeira letra maiúscula</label>
+                <label for='altCapitalize'><input type='radio' name='select' onClick="converter(this.value)" id='altCapitalize' value='altCapitalize' />Só a primeira letra maiúscula - Manter maiúsculas</label>
+                <label for='titleCase'><input type='radio' name='select' onClick="converter(this.value)" id='titleCase' value='titleCase' />Todas As Primeiras Letras Maiúsculas</label>
+                <label for='inverseTitleCase'><input type='radio' name='select' onClick="converter(this.value)" id='inverseTitleCase' value='inverseTitleCase' />tODAS aS pRIMEIRAS lETRAS mINÚSCULAS</label>
+                <label for='toggleLowerUpperCase'><input type='radio' name='select' onClick="converter(this.value)" id='toggleLowerUpperCase' value='toggleLowerUpperCase' />aLtErNaR eNtRe mInÚsCuLaS e mAiÚsCuLaS</label>
+                <label for='toggleUpperLowerCase'><input type='radio' name='select' onClick="converter(this.value)" id='toggleUpperLowerCase' value='toggleUpperLowerCase' />AlTeRnAr EnTrE MaIúScUlAs E MiNúScUlAs</label>
+                <label for='slug'><input type='radio' name='select' onClick="converter(this.value)" id='slug' value='slug' />transformar-texto-em-slug</label>
+            </div>
+
+        </div>
+
+        <hr/>
+
+        <div class='body-down'>
+            <div id="convertedText"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
