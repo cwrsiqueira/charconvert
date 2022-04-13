@@ -17,25 +17,37 @@ function convertStringToSlug (string) {
 }
 
 function converter(selection) {
-    document.querySelector('#convertedText').classList.remove('centralizar')
-    let text = document.querySelector('#text').value
+    // document.querySelector('#convertedText').classList.remove('centralizar')
+    let text = document.querySelector('#text').value;
+    if(!localStorage.getItem('initial_text')) {
+        localStorage.setItem('initial_text', text);
+    }
 
     switch (selection) {
+        case 'restart':
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = text
+            break;
         case 'toUpperCase':
-            document.querySelector('#convertedText').innerHTML = text.toUpperCase()
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = text.toUpperCase()
             break;
         case 'toLowerCase':
-            document.querySelector('#convertedText').innerHTML = text.toLowerCase()
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = text.toLowerCase()
             break;
         case 'capitalize':
-            let textToLowerCase = document.querySelector('#convertedText').innerHTML = text.toLowerCase()
-            document.querySelector('#convertedText').innerHTML = textToLowerCase.charAt(0).toUpperCase() + textToLowerCase.slice(1)
+            text = localStorage.getItem('initial_text')
+            let textToLowerCase = document.querySelector('#text').value = text.toLowerCase()
+            document.querySelector('#text').value = textToLowerCase.charAt(0).toUpperCase() + textToLowerCase.slice(1)
             break;
         case 'altCapitalize':
-            document.querySelector('#convertedText').innerHTML = text.charAt(0).toUpperCase() + text.slice(1)
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = text.charAt(0).toUpperCase() + text.slice(1)
             break;
         case 'titleCase':
-            document.querySelector('#convertedText').innerHTML = 
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = 
                 text.toLowerCase()
                 .split(' ')
                 .map((word) => {
@@ -43,7 +55,8 @@ function converter(selection) {
                 }).join(' ')
             break;
         case 'inverseTitleCase':
-            document.querySelector('#convertedText').innerHTML = 
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = 
                 text.toUpperCase()
                 .split(' ')
                 .map((word) => {
@@ -51,7 +64,8 @@ function converter(selection) {
                 }).join(' ')
             break;
         case 'toggleLowerUpperCase':
-            document.querySelector('#convertedText').innerHTML = 
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = 
                 text.split(' ')
                 .map((word) => {
                     return word.split('')
@@ -65,7 +79,8 @@ function converter(selection) {
                 }).join(' ')
             break;
         case 'toggleUpperLowerCase':
-            document.querySelector('#convertedText').innerHTML = 
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = 
                 text.split(' ')
                 .map((word) => {
                     return word.split('')
@@ -79,10 +94,15 @@ function converter(selection) {
                 }).join(' ')
             break;
         case 'slug':
-            document.querySelector('#convertedText').innerHTML = convertStringToSlug(text)
+            text = localStorage.getItem('initial_text')
+            document.querySelector('#text').value = convertStringToSlug(text)
+            break;
+        case 'clean':
+            localStorage.clear();
+            document.querySelector('#text').value = ''
             break;
         default:
-            document.querySelector('#convertedText').innerHTML = 'Opção inválida!'
+            document.querySelector('#text').value = 'Opção inválida!'
             break;
     }
 }
