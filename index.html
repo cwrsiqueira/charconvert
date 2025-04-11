@@ -1,113 +1,188 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-    <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5865817649832793" crossorigin="anonymous"></script>
+<head>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5865817649832793"
+        crossorigin="anonymous"></script>
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Essentials -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Char Converter é um conversor de caracteres online gratuito. Transforme textos em maiúsculas, minúsculas, capitalize palavras, crie slugs para URLs e muito mais. Ferramenta simples, rápida e eficiente para formatação de texto.">
+    <meta name="keywords"
+        content="converter texto, conversor de caracteres, transformar letras maiúsculas, minúsculas, capitalize, alternar letras, gerar slug, editor de texto online, formatar texto">
+    <meta name="author" content="Carlos Wagner Dev">
+    <meta name="robots" content="index, follow">
 
-        <meta property="og:url" content="https://charconverter.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="char converter" />
-        <meta property="og:description" content="Conversor de Caracteres" />
-        <meta property="og:tags" content="character, char, converter, caracteres, conversor, uppercase, lowercase, maiusculas, minusculas, letras" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Char Converter | Conversor de Caracteres e Texto Online" />
+    <meta property="og:description"
+        content="Ferramenta gratuita e fácil de usar para converter textos em maiúsculas, minúsculas, título, slug e muito mais. Ideal para editores, programadores e criadores de conteúdo." />
+    <meta property="og:url" content="https://charconverter.com/" />
+    <meta property="og:image" content="https://charconverter.com/assets/img/og-image.jpg" />
+    <meta property="og:type" content="website" />
 
-        <meta property="url" content="https://charconverter.com/" />
-        <meta property="type" content="website" />
-        <meta property="title" content="char converter" />
-        <meta property="description" content="Conversor de Textos" />
-        <meta property="tags" content="character, char, converter, caracteres, conversor, uppercase, lowercase, maiusculas, minusculas, letras, texto, conversor de texto" />
-        <meta property="keywords" content="character, char, converter, caracteres, conversor, uppercase, lowercase, maiusculas, minusculas, letras, texto, conversor de texto" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Char Converter | Conversor de Texto e Caracteres Online">
+    <meta name="twitter:description"
+        content="Converta texto com um clique! Ferramenta online para transformar letras, aplicar estilos e gerar slugs.">
+    <meta name="twitter:image" content="https://charconverter.com/assets/img/og-image.jpg">
 
-        <script defer src="/_vercel/insights/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/img/favicon.ico" />
+    <title>Char Converter | Conversor de Texto Maiúsculo, Minúsculo, Slug e Mais</title>
 
-        <title>CharConverter</title>
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="icon" href="./assets/img/favicon.ico" />
-    </head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5865817649832793"
+        crossorigin="anonymous"></script>
+</head>
 
-    <body>
-
-        <div class="menu">
-            <div class="right-menu">
-                <a href="https://www.charconverter.com/">Char Converter</a>
-                <small>Conversor de Caracteres</small>
+<body>
+    <!-- Cabeçalho -->
+    <header class="bg-dark text-white p-3 text-center">
+        <h1 class="display-5">Char Converter</h1>
+        <p class="lead">Converta textos em maiúsculas, minúsculas, capitalize, slug e muito mais!</p>
+        <div class="row">
+            <div class="col-sm"><a href="mailto:suporte@carlosdev.com.br" target="_blank"
+                    class="text-light text-decoration-none">Críticas e Sugestões</a>
             </div>
-            <div class="left-menu">
-                <div class="contact_area">
-                    <a href="mailto:contato@globalsitepro.com">Críticas e Sugestões</a>
-                    <a href="https://mpago.la/1uaqeEN">Ajude a manter o site</a>
+            <div class="col-sm"><a href="https://link.mercadopago.com.br/carlosdev" target="_blank"
+                    class="text-light text-decoration-none">Ajude a manter o site</a></div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class='body-up'>
+
+            <div class='body-up-left'>
+                <div class="heading">
+                    <h2>Digite ou cole o texto para converter</h2>
+
+                    <div class="buttons">
+                        <button onClick="converter(this.value)" id='restart' value='restart'>
+                            <img src="./assets/img/restart.svg">
+                            Reiniciar
+                        </button>
+                        <button onClick="converter(this.value)" id='clean' value='clean'>
+                            <img src="./assets/img/clean.svg">
+                            Limpar
+                        </button>
+                    </div>
+                </div>
+                <textarea id="text"
+                    placeholder="Digite ou cole seu texto aqui e selecione a opção em 'Converter texto para:'"></textarea>
+            </div>
+
+            <div class='body-up-right'>
+                <h3>Converter texto para:</h3>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='toUpperCase'
+                        value='toUpperCase' />
+                    <label for='toUpperCase'>TUDO MAIÚSCULO</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='toLowerCase'
+                        value='toLowerCase' />
+                    <label for='toLowerCase'>tudo minúsculo</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='capitalize'
+                        value='capitalize' />
+                    <label for='capitalize'>Só a primeira letra maiúscula</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='altCapitalize'
+                        value='altCapitalize' />
+                    <label for='altCapitalize'>Só a primeira letra maiúscula - Manter maiúsculas</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='titleCase'
+                        value='titleCase' />
+                    <label for='titleCase'>Todas As Primeiras Letras Maiúsculas</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='inverseTitleCase'
+                        value='inverseTitleCase' />
+                    <label for='inverseTitleCase'>tODAS aS pRIMEIRAS lETRAS mINÚSCULAS</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='toggleLowerUpperCase'
+                        value='toggleLowerUpperCase' />
+                    <label for='toggleLowerUpperCase'>aLtErNaR eNtRe mInÚsCuLaS e mAiÚsCuLaS</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='toggleUpperLowerCase'
+                        value='toggleUpperLowerCase' />
+                    <label for='toggleUpperLowerCase'>AlTeRnAr EnTrE MaIúScUlAs E MiNúScUlAs</label>
+                </div>
+                <div class="input-control">
+                    <input type='radio' name='select' onClick="converter(this.value)" id='slug' value='slug' />
+                    <label for='slug'>transformar-texto-em-slug</label>
                 </div>
             </div>
         </div>
 
-        <div class="container">
-
-            <div class='body-up'>
-
-                <div class='body-up-left'>
-                    <div class="heading">
-                        <h2>Digite ou cole o texto para converter</h2>
-
-                        <div class="buttons">
-                            <button onClick="converter(this.value)" id='restart' value='restart'>
-                                <img src="./assets/img/restart.svg">
-                                Reiniciar
-                            </button>
-                            <button onClick="converter(this.value)" id='clean' value='clean'>
-                                <img src="./assets/img/clean.svg">
-                                Limpar
-                            </button>
+        <!-- Seção de Blog -->
+        <section class="container py-4" id="blog">
+            <h2 class="mb-4">Últimos Artigos do Blog</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img src="../assets/img/articles/slug.jpg" alt="Slug e URLs amigáveis"
+                                class="img-fluid mb-4 rounded">
+                            <h3 class="card-title">O que é um Slug e para que serve?</h3>
+                            <p class="card-text">Slug é o trecho da URL que identifica uma página de forma amigável.
+                                Veja
+                                como criar slugs otimizados para SEO com nosso conversor online.</p>
+                            <a href="./articles/slug.html" class="btn btn-outline-primary btn-sm">Leia mais</a>
                         </div>
                     </div>
-                    <textarea id="text" placeholder="Digite ou cole seu texto aqui e selecione a opção em 'Converter texto para:'"></textarea>
                 </div>
-
-                <div class='body-up-right'>
-                    <h3>Converter texto para:</h3>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='toUpperCase' value='toUpperCase' />
-                        <label for='toUpperCase'>TUDO MAIÚSCULO</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='toLowerCase' value='toLowerCase' />
-                        <label for='toLowerCase'>tudo minúsculo</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='capitalize' value='capitalize' />
-                        <label for='capitalize'>Só a primeira letra maiúscula</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='altCapitalize' value='altCapitalize' />
-                        <label for='altCapitalize'>Só a primeira letra maiúscula - Manter maiúsculas</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='titleCase' value='titleCase' />
-                        <label for='titleCase'>Todas As Primeiras Letras Maiúsculas</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='inverseTitleCase' value='inverseTitleCase' />
-                        <label for='inverseTitleCase'>tODAS aS pRIMEIRAS lETRAS mINÚSCULAS</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='toggleLowerUpperCase' value='toggleLowerUpperCase' />
-                        <label for='toggleLowerUpperCase'>aLtErNaR eNtRe mInÚsCuLaS e mAiÚsCuLaS</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='toggleUpperLowerCase' value='toggleUpperLowerCase' />
-                        <label for='toggleUpperLowerCase'>AlTeRnAr EnTrE MaIúScUlAs E MiNúScUlAs</label>
-                    </div>
-                    <div class="input-control">
-                        <input type='radio' name='select' onClick="converter(this.value)" id='slug' value='slug' />
-                        <label for='slug'>transformar-texto-em-slug</label>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img src="../assets/img/articles/titulos.jpg" alt="Mulher digitando título em laptop"
+                                class="img-fluid mb-4 rounded">
+                            <h3 class="card-title">Como escrever títulos com impacto</h3>
+                            <p class="card-text">Aprenda a formatar corretamente seus títulos com letras maiúsculas e
+                                capitalize para aumentar a leitura e cliques nos seus conteúdos.</p>
+                            <a href="./articles/titulos.html" class="btn btn-outline-primary btn-sm">Ver dica</a>
+                        </div>
                     </div>
                 </div>
-
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img src="../assets/img/articles/maiusculas-minusculas.jpg"
+                                alt="Letras maiúsculas e minúsculas" class="img-fluid mb-4 rounded">
+                            <h3 class="card-title">Diferença entre MAIÚSCULAS e Minúsculas</h3>
+                            <p class="card-text">Entenda quando e por que usar letras maiúsculas e minúsculas em textos
+                                profissionais, acadêmicos e online.</p>
+                            <a href="./articles/maiusculas-minusculas.html" class="btn btn-outline-primary btn-sm">Saiba
+                                mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <img src="../assets/img/articles/ferramenta-texto.jpg"
+                                alt="Pessoa usando ferramenta de texto online" class="img-fluid mb-4 rounded">
+                            <h3 class="card-title">Ferramenta gratuita para transformar seu texto</h3>
+                            <p class="card-text">Economize tempo com nosso conversor de texto. Tudo online, grátis e sem
+                                anúncios invasivos. Experimente agora!</p>
+                            <a href="./articles/ferramenta-texto.html" class="btn btn-outline-primary btn-sm">Testar
+                                ferramenta</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-
+        </section>
 
         <section id="description">
             <h2>Descrição</h2>
@@ -122,92 +197,94 @@
                 </div>
                 <div class="item">
                     <h3>Só a primeira letra maiúscula</h3>
-                    <P>Transforma somente a primeira letra do texto para maiúscula e todas as outras letras para minúsculas</P>
+                    <P>Transforma somente a primeira letra do texto para maiúscula e todas as outras letras para
+                        minúsculas
+                    </P>
                 </div>
                 <div class="item">
                     <h3>Só a primeira letra maiúscula - Manter maiúsculas</h3>
-                    <P>Transforma somente a primeira letra do texto para maiúscula e todas as outras letras para minúsculas, mantendo as letras que estiverem maiúsculas no texto original.</P>
+                    <P>Transforma somente a primeira letra do texto para maiúscula e todas as outras letras para
+                        minúsculas,
+                        mantendo as letras que estiverem maiúsculas no texto original.</P>
                 </div>
                 <div class="item">
                     <h3>Todas As Primeiras Letras Maiúsculas</h3>
-                    <P>Transforma todas as primeiras letras de cada palavra do texto em maiúsculas e as demais para minúsculas</P>
+                    <P>Transforma todas as primeiras letras de cada palavra do texto em maiúsculas e as demais para
+                        minúsculas</P>
                 </div>
                 <div class="item">
                     <h3>tODAS aS pRIMEIRAS lETRAS mINÚSCULAS</h3>
-                    <P>Transforma todas as primeiras letras de cada palavra do texto em minúsculas e as demais para maiúsculas</P>
+                    <P>Transforma todas as primeiras letras de cada palavra do texto em minúsculas e as demais para
+                        maiúsculas</P>
                 </div>
                 <div class="item">
                     <h3>aLtErNaR eNtRe mInÚsCuLaS e mAiÚsCuLaS</h3>
-                    <P>Alterna as letras do texto entre maiúsculas e minúsculas, começando com a primeira letra de cada palavra em minúsculas</P>
+                    <P>Alterna as letras do texto entre maiúsculas e minúsculas, começando com a primeira letra de cada
+                        palavra em minúsculas</P>
                 </div>
                 <div class="item">
                     <h3>AlTeRnAr EnTrE MaIúScUlAs E MiNúScUlAs</h3>
-                    <P>Alterna as letras do texto entre maiúsculas e minúsculas, começando com a primeira letra de cada palavra em maiúsculas</P>
+                    <P>Alterna as letras do texto entre maiúsculas e minúsculas, começando com a primeira letra de cada
+                        palavra em maiúsculas</P>
                 </div>
                 <div class="item">
                     <h3>transformar-texto-em-slug</h3>
-                    <P>Transforma o texto em um slug. Slug é uma frase onde todas as letras são minúsculas, sem acentos ou caracteres especiais, separadas por hífen ( - ), e é normalmente usado em títulos de posts, artigos ou textos nas URLs de sites, por exemplo.</P>
+                    <P>Transforma o texto em um slug. Slug é uma frase onde todas as letras são minúsculas, sem acentos
+                        ou
+                        caracteres especiais, separadas por hífen ( - ), e é normalmente usado em títulos de posts,
+                        artigos
+                        ou textos nas URLs de sites, por exemplo.</P>
                 </div>
             </div>
         </section>
 
-        <section style="margin: 10px; padding: 10px;" id="oqerendapassiva">
-            <h2>10 TÍTULOS INTERESSANTES PARA BLOGS E REDES SOCIAIS</h2>
-            <p>
-                #01 – Como fazer _____________ em poucos passos. <br>
-                Exemplo: Como fazer um blog simples em poucos passos
-            </p>
-            <p>
-                #02 – O guia completo para _____________. <br>
-                Exemplo: O guia completo para aprender sobre Facebook Ads
-            </p>
-                #03 – ___ dicas para você ter sucesso com ________. <br>
-                Exemplo: 7 dicas para você ter sucesso com o Instagram
-            </p>
-            <p>
-                #04 – O que ninguém diz sobre _____________. <br>
-                Exemplo: O que ninguém diz sobre trabalhar em casa
-            </p>
-            <p>
-                #05 – Regras para ____________ de forma simples. <br>
-                Exemplo: Regras para fazer anúncios no Facebook de forma simples
-            </p>
-            <p>
-                #06 – ___ dicas rápidas para __________________. <br>
-                Exemplo: 12 dicas rápidas para aprender sobre LinkeIn
-            </p>
-            <p>
-                #07 – Os maiores segredos _____________________. <br>
-                Exemplo: Os maiores segredos sobre o alcance orgânico do Facebook
-            </p>
-            <p>
-                #08 – Tudo que você precisa saber sobre __________. <br>
-                Exemplo: Tudo que você precisa saber sobre Bitcoins
-            </p>
-            <p>
-                #09 – Leia isso se você quer ter sucesso com _____. <br>
-                Exemplo: Leia isso se você quer ter sucesso com Fotografia
-            </p>
-            <p>
-                #10 – ___ razões para você conhecer ______________. <br>
-                Exemplo: 5 razões para você conhecer o Photoshop
-            </p>
-            <p>
-                Fonte: <a href="https://encinas.me/10-titulos-interessantes-para-blogs-e-redes-sociais/" target="blank">10 TÍTULOS INTERESSANTES PARA BLOGS E REDES SOCIAIS - Escrito por Guilherme Encinas </a>    
-            </p>
+        <section id="titulo-dicas" class="container py-5">
+            <div class="row align-items-center g-4">
+                <div class="col-md-4">
+                    <img src="assets/img/articles/titulos-dicas.jpg" alt="Dicas de títulos para blogs e redes sociais"
+                        class="img-fluid rounded">
+                </div>
+                <div class="col-md-8">
+                    <h2 class="mb-2">10 Formatos de Títulos que Geram Cliques</h2>
+                    <p class="text-muted mb-4">Inspire-se com essas ideias para criar conteúdos mais atrativos e
+                        engajadores.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">✅ <strong>Como fazer</strong> _____________ em poucos passos.</li>
+                        <li class="list-group-item">✅ <strong>O guia completo para</strong> _____________</li>
+                        <li class="list-group-item">✅ ___ dicas para você ter sucesso com ________.</li>
+                        <li class="list-group-item">✅ <strong>O que ninguém diz sobre</strong> _____________</li>
+                        <li class="list-group-item">✅ <strong>Regras para</strong> __________ de forma simples.</li>
+                        <li class="list-group-item">✅ ___ dicas rápidas para __________________.</li>
+                        <li class="list-group-item">✅ <strong>Os maiores segredos</strong> _____________________</li>
+                        <li class="list-group-item">✅ <strong>Tudo que você precisa saber sobre</strong> __________</li>
+                        <li class="list-group-item">✅ <strong>Leia isso se você quer ter sucesso com</strong> _____</li>
+                        <li class="list-group-item">✅ ___ razões para você conhecer ______________</li>
+                    </ul>
+                    <p class="mt-4">
+                        🔗 Fonte: <a href="https://encinas.me/10-titulos-interessantes-para-blogs-e-redes-sociais/"
+                            target="_blank" class="text-decoration-underline">Guilherme Encinas – encinas.me</a>
+                    </p>
+                </div>
+            </div>
         </section>
+    </div>
 
-        <footer>
-            <div>
-                Created by <a href="https://globalsitepro.com">Global Site Pro</a>
-            </div>
-            <div class="links">
-                <a href="mailto:contato@globalsitepro.com">Críticas e Sugestões</a>
-                <a href="https://mpago.la/1uaqeEN">Ajude a manter o site</a>
-            </div>
-        </footer>
+    <!-- Rodapé -->
+    <footer class="bg-dark text-white text-center p-3 mt-4">
+        <div>
+            Criado por <a href="https://carlosdev.com.br" target="_blank" class="text-info">Carlos Dev</a>
+        </div>
+        <div class="mt-2">
+            <a href="mailto:suporte@carlosdev.com.br" target="_blank" class="text-white mx-2">Contato</a>
+            <a href="https://link.mercadopago.com.br/carlosdev" target="_blank" class="text-white mx-2">Apoie o site</a>
+        </div>
+    </footer>
 
-        <script src="./assets/js/script.js"></script>
-    </body>
+    <!-- Scripts -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 
 </html>
