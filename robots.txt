@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /results.html
 
-Sitemap: https://calcularrendapassiva.com/sitemap.xml
+Sitemap: https://charconverter.com/sitemap.xml
